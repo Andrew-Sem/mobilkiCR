@@ -1,8 +1,9 @@
 import {StackScreenProps} from "@react-navigation/stack"
+import {IGame} from "../models/IGame";
 
 export type StackParamList = {
-    Home: undefined;
-    Profile: {userId: string}
+    Games: undefined;
+    Game: {game:IGame}
     // Losos: {karas: number}
 };
 

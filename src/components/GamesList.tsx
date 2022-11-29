@@ -1,8 +1,9 @@
 import React, {FC, useEffect} from 'react';
-import { Text, View } from 'react-native';
+import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {GameCard} from "./GameCard";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchGames} from "../store/actions/drugsAction";
+import {IGame} from "../models/IGame";
 
 
 export const GamesList:FC = () => {
@@ -17,11 +18,15 @@ export const GamesList:FC = () => {
         return <Text>Error</Text>
 
     return(
-        <View>
-            {games.map((game) => (
-                <GameCard game={game} key={game.gameId}/>
-            ))}
-        </View>
+        <FlatList data={games} renderItem={({item}) => <GameCard game={item}/>} keyExtractor={item => item.id}/>
     )
 }
+
+const styles = StyleSheet.create({
+    gameList:{
+        flexDirection: "row",
+        backgroundColor: "lightblue",
+        flexWrap: "wrap"
+    },
+})
 

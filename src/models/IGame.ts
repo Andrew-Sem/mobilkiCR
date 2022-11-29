@@ -1,5 +1,5 @@
 export interface IGame {
-    gameId: number
+    id: string
     name: string
     base64Image: string
     description: string

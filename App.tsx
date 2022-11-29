@@ -1,20 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import 'react-native-gesture-handler';
+import {createStackNavigator} from "@react-navigation/stack";
+import {NavigationContainer} from "@react-navigation/native"
+import {Home} from "./src/screens/Home";
+import {StackParamList} from "./src/types/reactNavigation";
+import Profile from "./src/screens/Profile";
+import {Provider} from "react-redux";
+import {store} from "./src/store/store";
+
+const Stack = createStackNavigator<StackParamList>()
 
 export default function App() {
-  return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    return (
+        <Provider store={store}>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName={"Home"}>
+                    <Stack.Screen name={"Home"} component={Home}/>
+                    <Stack.Screen name={"Profile"} component={Profile} initialParams={{userId: "losos"}}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Provider>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

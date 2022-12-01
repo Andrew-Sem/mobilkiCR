@@ -6,6 +6,7 @@ import {StackParamList} from "./src/types/reactNavigation";
 import {Provider} from "react-redux";
 import {store} from "./src/store/store";
 import {Game} from "./src/screens/Game";
+import {Cart} from "./src/screens/Cart";
 
 const Stack = createStackNavigator<StackParamList>()
 
@@ -16,6 +17,7 @@ export default function App() {
                 <Stack.Navigator initialRouteName={"Games"}>
                     <Stack.Screen name={"Games"} component={Games}/>
                     <Stack.Screen name={"Game"} component={Game}/>
+                    <Stack.Screen name={"Cart"} component={Cart}/>
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

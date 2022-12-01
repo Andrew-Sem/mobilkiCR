@@ -4,12 +4,19 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "config": "java -jar ~/Downloads/Telegram\\ Desktop/config-service.jar",
+    "registry": "java -jar ~/Downloads/Telegram\\ Desktop/registry-service.jar",
+    "games": "java -jar ~/Downloads/Telegram\\ Desktop/games-service.jar",
+    "login": "java -jar ~/Downloads/Telegram\\ Desktop/login-service.jar",
+    "cart": "java -jar ~/Downloads/Telegram\\ Desktop/cart-service.jar",
+    "gateway": "java -jar ~/Downloads/Telegram\\ Desktop/gateway-service-1.0.jar",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "0.2.8",
+    "@react-navigation/bottom-tabs": "^6.4.3",
     "@react-navigation/stack": "^6.3.5",
     "@reduxjs/toolkit": "^1.9.0",
     "axios": "^1.2.0",
@@ -20,6 +27,7 @@
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-gesture-handler": "~2.8.0",
+    "react-native-heroicons": "^3.2.0",
     "react-native-web": "~0.18.9",
     "react-redux": "^8.0.5"
   },
@@ -27,6 +35,7 @@
     "@babel/core": "^7.12.9",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
+    "concurrently": "^7.6.0",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.6.3"
   },

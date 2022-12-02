@@ -1,24 +1,11 @@
-import React, { FC } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { IGame } from "../models/IGame";
-import { Btn } from "./Btn";
+import { FC } from "react";
+import { StyleSheet, View, TouchableOpacity, Image, Text } from "react-native";
+import { GameCardProps } from "./GameCard";
 import { useNavigation } from "@react-navigation/native";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { addToCart } from "../store/actions/cartAction";
 
-export interface GameCardProps {
-  game: IGame;
-}
-
-export const GameCard: FC<GameCardProps> = ({ game }) => {
+export const CartGameCard: FC<GameCardProps> = ({ game }) => {
   const navigation = useNavigation();
-  const { name, id, base64Image, developer, price } = game;
-  const { userId, token } = useAppSelector((state) => state.auth);
-  const dispatch = useAppDispatch();
-  const addToCartBtnHandler = () => {
-    console.log(game);
-    dispatch(addToCart({ token, userId, gameData: [game] }));
-  };
+  const { base64Image, name, developer, price } = game;
   return (
     <TouchableOpacity
       style={styles.card}
@@ -37,9 +24,6 @@ export const GameCard: FC<GameCardProps> = ({ game }) => {
         </View>
         <View style={styles.saleBlock}>
           <Text style={styles.price}>{price}₽</Text>
-          <Btn onPress={addToCartBtnHandler}>
-            <Text style={styles.btnText}>В корзину</Text>
-          </Btn>
         </View>
       </View>
     </TouchableOpacity>

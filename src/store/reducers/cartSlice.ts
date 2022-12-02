@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { fetchCartGames } from "./../actions/cartAction";
+import { fetchCartGames, addToCart } from "./../actions/cartAction";
 import { createSlice } from "@reduxjs/toolkit";
 import { IGame } from "./../../models/IGame";
 
@@ -29,8 +29,20 @@ const cartSlice = createSlice({
           state.games = action.payload;
         }
       )
-      .addCase(fetchCartGames.rejected, (state) => {
+      .addCase(fetchCartGames.rejected, (state, action) => {
         state.loading = "failed";
+        console.log(action.error);
+      });
+    builder
+      .addCase(addToCart.pending, (state) => {
+        state.loading = "pending";
+      })
+      .addCase(addToCart.fulfilled, (state) => {
+        state.loading = "succeeded";
+      })
+      .addCase(addToCart.rejected, (state, action) => {
+        state.loading = "failed";
+        console.log(action.error);
       });
   },
 });

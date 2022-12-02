@@ -2,6 +2,7 @@ import { FC } from "react";
 import { StyleSheet, View, TouchableOpacity, Image, Text } from "react-native";
 import { GameCardProps } from "./GameCard";
 import { useNavigation } from "@react-navigation/native";
+import { useAppSelector } from "../hooks/redux";
 
 export const CartGameCard: FC<GameCardProps> = ({ game }) => {
   const navigation = useNavigation();

@@ -20,7 +20,7 @@ export class CartService {
   static addToCart({ userId, token, gameData }: addToCartProps) {
     return $api.post(
       "/cart/v1/update",
-      { userId, token },
+      { userId: "user" + userId, gameData },
       {
         headers: {
           Authorization: "Bearer " + token,

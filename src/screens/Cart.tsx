@@ -50,14 +50,13 @@ export const Cart: FC = () => {
 
 const styles = StyleSheet.create({
   priceView: {
-    position: "absolute",
-    bottom: 0,
     paddingVertical: 30,
     paddingHorizontal: 20,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: "white",
   },
   priceText: {
     fontWeight: "bold",

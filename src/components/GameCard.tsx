@@ -13,11 +13,12 @@ export interface GameCardProps {
 export const GameCard: FC<GameCardProps> = ({ game }) => {
   const navigation = useNavigation();
   const { name, id, base64Image, developer, price } = game;
+  const { games } = useAppSelector((state) => state.cart);
   const { userId, token } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const addToCartBtnHandler = () => {
     console.log(game);
-    dispatch(addToCart({ token, userId, gameData: [game] }));
+    dispatch(addToCart({ token, userId, gameData: [game, ...games] }));
   };
   return (
     <TouchableOpacity
